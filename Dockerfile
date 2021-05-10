@@ -1,6 +1,4 @@
-FROM selenium/standalone-firefox-debug:3.141.59-20200525
-
-USER seluser
+FROM ubuntu:focal-20210401
 
 RUN sudo apt update && \
     sudo apt-get install -y git python3-pip libasound-dev && \
@@ -29,8 +27,8 @@ RUN sudo apt-get install -y --no-install-recommends pulseaudio dbus-x11 xserver-
     sudo apt-get install -y --no-install-recommends libcairo2 libxcb1 libxrandr2 libxv1 libopus0 libvpx4;
 
 # setup pulseaudio
-RUN mkdir -p /home/$USERNAME/.config/pulse/; \
-    echo "default-server=unix:/tmp/pulseaudio.socket" > /home/$USERNAME/.config/pulse/client.conf;
+RUN mkdir -p $HOME/.config/pulse/; \
+    echo "default-server=unix:/tmp/pulseaudio.socket" > $HOME/.config/pulse/client.conf;
 
 ## WebRTC Cli
 RUN sudo apt-get install  -y gcc make pkg-config libopus-dev libopusfile-dev libpulse-dev software-properties-common \
