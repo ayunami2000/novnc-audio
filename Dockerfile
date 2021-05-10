@@ -16,7 +16,7 @@ RUN git clone https://github.com/kanaka/websockify ~/noVNC/utils/websockify
 
 # Audio server
 RUN pip3 install pyaudio flask
-COPY audioserver ~/audioserver
+COPY audioserver /root/audioserver
 RUN pip3 install -r ~/audioserver/requirements.txt
 
 # RUN NoVNC
