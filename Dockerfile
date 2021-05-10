@@ -1,5 +1,7 @@
 FROM ubuntu:focal-20210401
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt update && \
     apt-get install -y git python3-pip libasound-dev && \
     apt-get install -y portaudio19-dev libportaudio2 libportaudiocpp0 && \
