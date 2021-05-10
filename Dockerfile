@@ -6,16 +6,16 @@ RUN sudo apt update && \
     sudo apt-get install -y ffmpeg
 
 # Clone noVNC.
-RUN git clone https://github.com/ayunami2000/noVNC.git $HOME/noVNC
-RUN cp $HOME/noVNC/vnc.html $HOME/noVNC/index.html
+RUN git clone https://github.com/ayunami2000/noVNC.git ~/noVNC
+RUN cp ~/noVNC/vnc.html ~/noVNC/index.html
 
 # websockify
-RUN git clone https://github.com/kanaka/websockify $HOME/noVNC/utils/websockify
+RUN git clone https://github.com/kanaka/websockify ~/noVNC/utils/websockify
 
 # Audio server
 RUN pip3 install pyaudio flask
-COPY audioserver $HOME/audioserver
-RUN pip3 install -r $HOME/audioserver/requirements.txt
+COPY audioserver ~/audioserver
+RUN pip3 install -r ~/audioserver/requirements.txt
 
 # RUN NoVNC
 COPY supervisord.conf /etc/supervisor/conf.d/zzz_hmihy.conf
@@ -27,8 +27,8 @@ RUN sudo apt-get install -y --no-install-recommends pulseaudio dbus-x11 xserver-
     sudo apt-get install -y --no-install-recommends libcairo2 libxcb1 libxrandr2 libxv1 libopus0 libvpx4;
 
 # setup pulseaudio
-RUN mkdir -p $HOME/.config/pulse/; \
-    echo "default-server=unix:/tmp/pulseaudio.socket" > $HOME/.config/pulse/client.conf;
+RUN mkdir -p ~/.config/pulse/; \
+    echo "default-server=unix:/tmp/pulseaudio.socket" > ~/.config/pulse/client.conf;
 
 ## WebRTC Cli
 RUN sudo apt-get install  -y gcc make pkg-config libopus-dev libopusfile-dev libpulse-dev software-properties-common \
