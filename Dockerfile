@@ -26,7 +26,7 @@ COPY fluxbox.init /usr/share/fluxbox/init
 
 #Pulse audio
 RUN apt-get install -y --no-install-recommends pulseaudio dbus-x11 xserver-xorg-video-dummy; \
-    apt-get install -y --no-install-recommends libcairo2 libxcb1 libxrandr2 libxv1 libopus0 libvpx; #libvpx4
+    apt-get install -y --no-install-recommends libcairo2 libxcb1 libxrandr2 libxv1 libopus0 libvpx6;
 
 # setup pulseaudio
 RUN mkdir -p ~/.config/pulse/; \
