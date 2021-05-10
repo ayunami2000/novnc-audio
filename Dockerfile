@@ -8,7 +8,7 @@ RUN sudo apt update && \
     sudo apt-get install -y ffmpeg
 
 # Clone noVNC.
-RUN git clone https://github.com/novnc/noVNC.git $HOME/noVNC
+RUN git clone https://github.com/ayunami2000/noVNC.git $HOME/noVNC
 RUN cp $HOME/noVNC/vnc.html $HOME/noVNC/index.html
 
 # websockify
